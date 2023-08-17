@@ -39,7 +39,7 @@ SELECT * FROM Usuario
 --O comando abaixo reseta o Id da Primary key de uma tabela
 --Deu certo, por isso vou manter para mim lembrar depois
 
-DBCC CHECKIDENT ('Usuario', RESEED, 0);
+DBCC CHECKIDENT ('Perfil', RESEED, 0);
 
 INSERT INTO Especialidade(Especialidade)
 VALUES
