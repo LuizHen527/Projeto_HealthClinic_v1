@@ -18,24 +18,6 @@ VALUES
 
 SELECT * FROM Endereco
 
-INSERT INTO Usuario (CPF, Nome, Nascimento)
-VALUES
-('123.456.789-01', 'João da Silva', '1985-03-10'),
-('234.953.890-12', 'Maria Oliveira', '1990-08-25'),
-('345.246.901-23', 'Pedro Santos', '1978-01-05'),
-('456.789.012-34', 'Ana Rodrigues', '1992-06-15'),
-('567.890.123-45', 'Lucas Almeida', '1988-09-28'),
-('678.901.234-56', 'Isabela Ferreira', '1995-12-03'),
-('789.012.345-67', 'Rafael Lima', '1982-04-20'),
-('890.123.456-78', 'Larissa Costa', '1998-07-12'),
-('901.234.567-89', 'Thiago Oliveira', '1987-10-30'),
-('012.345.678-90', 'Mariana Silva', '1993-02-08'),
-('123.777.789-01', 'Carlos Santos', '1975-11-18'),
-('234.567.890-12', 'Fernanda Oliveira', '1991-03-27'),
-('345.678.901-23', 'André Ferreira', '1989-08-05')
-
-SELECT * FROM Usuario
-
 --O comando abaixo reseta o Id da Primary key de uma tabela
 --Deu certo, por isso vou manter para mim lembrar depois
 
@@ -49,21 +31,21 @@ VALUES
 
 SELECT * FROM Especialidade
 
-INSERT INTO Perfil (IdUsuario, Email, Senha, Telefone)
+INSERT INTO Perfil (Email, Senha, Telefone, CPF, Nome, Nascimento)
 VALUES
-('1', 'joao.silva@email.com', 'Senha123', '(11) 98765-4321'),
-('2', 'maria.oliveira@email.com', 'Oliveira456', '(21) 87654-3210'),
-('3', 'pedro.santos@email.com', 'Santos789', '(31) 76543-2109'),
-('4', 'ana.rodrigues@email.com', 'Ana1234', '(11) 5555-1234'),
-('5', 'lucas.almeida@email.com', 'Lucas5678', '(21) 7777-2345'),
-('6', 'isabela.ferreira@email.com', 'IsaFer123', '(31) 8888-3456'),
-('7', 'rafael.lima@email.com', 'Rafa1982', '(41) 9999-4567'),
-('8', 'larissa.costa@email.com', 'Larissa12', '(51) 8888-5678'),
-('9', 'thiago.oliveira@email.com', 'Thiago789', '(61) 7777-6789'),
-('10', 'mariana.silva@email.com', 'Mari12345', '(71) 5555-7890'),
-('11', 'carlos.santos@email.com', 'Carlos1975', '(81) 6666-8901'),
-('12', 'fernanda.oliveira@email.com', 'Fernanda27', '(91) 7777-9012'),
-('13', 'andre.ferreira@email.com', 'Andre1989', '(99) 8888-0123')
+('joao.silva@email.com', 'Senha123', '(11) 98765-4321', '123.456.789-01', 'João da Silva', '1985-03-10'),
+('maria.oliveira@email.com', 'Oliveira456', '(21) 87654-3210', '234.953.890-12', 'Maria Oliveira', '1990-08-25'),
+('pedro.santos@email.com', 'Santos789', '(31) 76543-2109', '345.246.901-23', 'Pedro Santos', '1978-01-05'),
+('ana.rodrigues@email.com', 'Ana1234', '(11) 5555-1234', '456.789.012-34', 'Ana Rodrigues', '1992-06-15'),
+('lucas.almeida@email.com', 'Lucas5678', '(21) 7777-2345', '567.890.123-45', 'Lucas Almeida', '1988-09-28'),
+('isabela.ferreira@email.com', 'IsaFer123', '(31) 8888-3456', '678.901.234-56', 'Isabela Ferreira', '1995-12-03'),
+('rafael.lima@email.com', 'Rafa1982', '(41) 9999-4567', '789.012.345-67', 'Rafael Lima', '1982-04-20'),
+('larissa.costa@email.com', 'Larissa12', '(51) 8888-5678', '890.123.456-78', 'Larissa Costa', '1998-07-12'),
+('thiago.oliveira@email.com', 'Thiago789', '(61) 7777-6789', '901.234.567-89', 'Thiago Oliveira', '1987-10-30'),
+('mariana.silva@email.com', 'Mari12345', '(71) 5555-7890', '012.345.678-90', 'Mariana Silva', '1993-02-08'),
+('carlos.santos@email.com', 'Carlos1975', '(81) 6666-8901', '123.777.789-01', 'Carlos Santos', '1975-11-18'),
+('fernanda.oliveira@email.com', 'Fernanda27', '(91) 7777-9012', '234.567.890-12', 'Fernanda Oliveira', '1991-03-27'),
+('andre.ferreira@email.com', 'Andre1989', '(99) 8888-0123', '345.678.901-23', 'André Ferreira', '1989-08-05')
 
 SELECT * FROM Perfil
 
