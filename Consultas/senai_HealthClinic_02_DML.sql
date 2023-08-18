@@ -8,28 +8,22 @@ VALUES
 ('07:45:00', '17:45:00', 'Clínica Bem-Estar', '23.456.789/0001-02', 'Bem-Estar Serviços Médicos S.A.'),
 ('08:00:00', '18:00:00', 'Clínica Vida Saudável', '34.567.890/0001-03', 'Vida Saudável Assistência Médica EIRELI')
 
-SELECT * FROM Clinica
-
 INSERT INTO Endereco (IdClinica, Endereco)
 VALUES
 ('1', 'Rua das Flores, 123, Centro, São Paulo, SP, 01234-567'),
 ('2', 'Avenida da Saúde, 456, Jardins, Rio de Janeiro, RJ, 23456-789'),
 ('3', 'Rua da Paz, 789, Vila Esperança, Belo Horizonte, MG, 34567-890')
 
-SELECT * FROM Endereco
-
---O comando abaixo reseta o Id da Primary key de uma tabela
+--O comando abaixo reseta o Id da Primary key de uma tabela.
 --Deu certo, por isso vou manter para mim lembrar depois
 
-DBCC CHECKIDENT ('Perfil', RESEED, 0);
+DBCC CHECKIDENT ('Consulta', RESEED, 0);
 
 INSERT INTO Especialidade(Especialidade)
 VALUES
 ('Cardiologia'),
 ('Dermatologia'),
 ('Ortopedia')
-
-SELECT * FROM Especialidade
 
 INSERT INTO Perfil (Email, Senha, Telefone, CPF, Nome, Nascimento)
 VALUES
@@ -47,15 +41,11 @@ VALUES
 ('fernanda.oliveira@email.com', 'Fernanda27', '(91) 7777-9012', '234.567.890-12', 'Fernanda Oliveira', '1991-03-27'),
 ('andre.ferreira@email.com', 'Andre1989', '(99) 8888-0123', '345.678.901-23', 'André Ferreira', '1989-08-05')
 
-SELECT * FROM Perfil
-
-INSERT INTO Medico (IdPerfil, IdEspecialidade)
+INSERT INTO Medico (IdPerfil, IdEspecialidade, CRM)
 VALUES
-('1', '3'),
-('2', '2'),
-('3', '1')
-
-SELECT * FROM Medico
+('1', '3', '12345/SP'),
+('2', '2', '23456/RJ'),
+('3', '1', '34567/MG')
 
 INSERT INTO Prontuario (Descricao)
 VALUES
@@ -70,8 +60,6 @@ VALUES
 ('2023-08-15, Irritação nos olhos e lacrimejamento, Conjuntivite alérgica, Colírio antialérgico, Evitar exposição a alérgenos, Retorno em 1 semana para avaliar melhora'),
 ('2023-08-15, Insônia e dificuldade para dormir, Insônia leve, Higiene do sono, Relaxamento antes de dormir, Retorno após 2 semanas para avaliar progresso')
 
-SELECT * FROM Prontuario
-
 INSERT INTO Paciente (IdProntuario, IdPerfil, Convenio)
 VALUES
 ('1', '4', '1'),
@@ -84,8 +72,6 @@ VALUES
 ('8', '11', '1'),
 ('9', '12', '0'),
 ('10', '13', '0')
-
-SELECT * FROM Paciente
 
 INSERT INTO Feedback (IdPaciente, Comentario)
 VALUES
@@ -100,8 +86,6 @@ VALUES
 ('9', 'A Dra. Almeida foi clara em relação à minha conjuntivite alérgica. O colírio antialérgico ajudou a aliviar a irritação nos meus olhos. Estou grata por sua orientação.'),
 ('10', 'O Dr. Martins me deu conselhos úteis sobre minha insônia. Suas dicas de higiene do sono e relaxamento são práticas. Estou ansioso para implementá-las.')
 
-SELECT * FROM Feedback
-
 INSERT INTO Consulta (IdFeedback, IdPaciente, IdMedico, IdEndereco, Horario, Agendamento, Estado)
 VALUES
 ('1', '1', '3', '2', '10:00:00', '2023-08-15', '1'),
@@ -114,10 +98,3 @@ VALUES
 ('8', '8', '2', '3', '08:45:00', '2023-08-15', '1'),
 ('9', '9', '1', '1', '12:15:00', '2023-08-15', '1'),
 ('10', '10', '3', '2', '17:00:00', '2023-08-15', '1')
-
-
-INSERT INTO Consulta (IdPaciente, IdMedico, IdEndereco, Horario, Agendamento, Estado)
-VALUES
-('5', '3', '2', '17:00:00', '2023-08-15', '0')
-
-SELECT * FROM Consulta
