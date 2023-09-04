@@ -14,6 +14,8 @@
 
 USE Manha_HealthClinic
 
+/*Selecione e execute tudo daqui pra baixo*/
+
 SELECT
 Consulta.IdConsulta,
 Agendamento AS [Data],
