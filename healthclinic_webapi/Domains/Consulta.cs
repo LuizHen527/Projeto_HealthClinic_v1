@@ -9,7 +9,7 @@ namespace healthclinic_webapi.Domains
         [Key]
         public Guid IdConsulta { get; set; }
 
-        [Column(TypeName = "TIME")]
+        [Column(TypeName = "DATE")]
         [Required(ErrorMessage = "Data obrigatoria")]
         public DateTime Agendamento { get; set; }
 
