@@ -4,6 +4,7 @@ namespace healthclinic_webapi.Interfaces
 {
     public interface IConsultaRepository
     {
+        //teste
         void Cadastrar(Consulta consulta);
         List<Consulta> Listar();
         void Atualizar(Guid id, Consulta consulta);
