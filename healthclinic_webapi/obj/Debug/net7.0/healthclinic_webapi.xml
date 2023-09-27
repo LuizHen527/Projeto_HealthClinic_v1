@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>healthclinic_webapi</name>
+    </assembly>
+    <members>
+        <member name="M:healthclinic_webapi.Controllers.ClinicaController.Cadastrar(healthclinic_webapi.Domains.Clinica)">
+            <summary>
+            Cadastra uma nova clinica
+            </summary>
+            <param name="clinica">Nova clinica</param>
+            <returns>Retorna status code 201</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.ClinicaController.Deletar(System.Guid)">
+            <summary>
+            Deleta uma clinica 
+            </summary>
+            <param name="id">Id da clinica que sera deletada</param>
+            <returns>Retorna status code 204</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.EnderecoController.#ctor">
+            <summary>
+            Chama um endereco repository
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.EnderecoController.Cadastrar(healthclinic_webapi.Domains.Endereco)">
+            <summary>
+            Cadastra um  novo endereco
+            </summary>
+            <param name="endereco">Novo endereco</param>
+            <returns>Retorna status code 201</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.EnderecoController.Deletar(System.Guid)">
+            <summary>
+            Deleta um enderco
+            </summary>
+            <param name="id">Id do endereco que sera deletado</param>
+            <returns>Retorna status code 204</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.EspecialidadeController.#ctor">
+            <summary>
+            Chama repository de especialidade
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.EspecialidadeController.Cadastrar(healthclinic_webapi.Domains.Especialidade)">
+            <summary>
+            Cadastra uma nova especialidade
+            </summary>
+            <param name="especialidade">Nova especialidade</param>
+            <returns>Retorna status code 201</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.EspecialidadeController.Deletar(System.Guid)">
+            <summary>
+            Deleta uma especialidade
+            </summary>
+            <param name="id">Id da especialidade que sera deletada</param>
+            <returns>Retorna status code 204</returns>
+        </member>
+        <member name="T:healthclinic_webapi.Interfaces.IClinicaRepository">
+            <summary>
+            interface de Clinica
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IClinicaRepository.Cadastrar(healthclinic_webapi.Domains.Clinica)">
+            <summary>
+            Cadastra uma clinica
+            </summary>
+            <param name="clinica">Nova clinica</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IClinicaRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta uma clinica existente
+            </summary>
+            <param name="id">Id da Clinica que sera deletada</param>
+        </member>
+        <member name="T:healthclinic_webapi.Interfaces.IEnderecoRepository">
+            <summary>
+            Interface de endereco
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IEnderecoRepository.Cadastrar(healthclinic_webapi.Domains.Endereco)">
+            <summary>
+            Cadastra um endereco
+            </summary>
+            <param name="endereco">Novo endereco</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IEnderecoRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um endereco
+            </summary>
+            <param name="id">Id do endereco que sera deletado</param>
+        </member>
+        <member name="T:healthclinic_webapi.Interfaces.IEspecialidadeRepository">
+            <summary>
+            Interface de especialidade
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IEspecialidadeRepository.Cadastrar(healthclinic_webapi.Domains.Especialidade)">
+            <summary>
+            Cadastra uma nova especialidade
+            </summary>
+            <param name="especialidade">Nova especialidade</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IEspecialidadeRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta uma especialidade
+            </summary>
+            <param name="id">Id da especialidade que sera deletada</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IUsuarioRepository.Cadastrar(healthclinic_webapi.Domains.Usuario)">
+            <summary>
+            Cadastra um novo usuario
+            </summary>
+            <param name="usuario">Novo usuario</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IUsuarioRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um usuario
+            </summary>
+            <param name="id">Id do usuario que sera deletado</param>
+        </member>
+        <member name="T:healthclinic_webapi.Migrations.DB1">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB1.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB1.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB1.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:healthclinic_webapi.Repositories.ClinicaRepository">
+            <summary>
+            Classe com os metodos da clinica
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.ClinicaRepository.Cadastrar(healthclinic_webapi.Domains.Clinica)">
+            <summary>
+            Cadastra uma clinica
+            </summary>
+            <param name="clinica">Nova clinica</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.ClinicaRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta uma clinica existente
+            </summary>
+            <param name="id">Id da Clinica que sera deletada</param>
+        </member>
+        <member name="T:healthclinic_webapi.Repositories.EnderecoRepository">
+            <summary>
+            Classe com os metodos de endereco
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.EnderecoRepository.#ctor">
+            <summary>
+            Instancia a context
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.EnderecoRepository.Cadastrar(healthclinic_webapi.Domains.Endereco)">
+            <summary>
+            Cadastra um endereco
+            </summary>
+            <param name="endereco">Novo endereco</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.EnderecoRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um endereco
+            </summary>
+            <param name="id">Id do endereco que sera deletado</param>
+        </member>
+        <member name="T:healthclinic_webapi.Repositories.EspecialidadeRepository">
+            <summary>
+            Classe com os metodos de especialidade
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.EspecialidadeRepository.#ctor">
+            <summary>
+            Chama a context
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.EspecialidadeRepository.Cadastrar(healthclinic_webapi.Domains.Especialidade)">
+            <summary>
+            Cadastra uma nova especialidade
+            </summary>
+            <param name="especialidade">Nova especialidade</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.EspecialidadeRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta uma especialidade
+            </summary>
+            <param name="id">Id da especialidade que sera deletada</param>
+        </member>
+        <member name="T:healthclinic_webapi.Repositories.UsuarioRepository">
+            <summary>
+            Classe com os metodos de usuario
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.UsuarioRepository.#ctor">
+            <summary>
+            Chama a context
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.UsuarioRepository.Cadastrar(healthclinic_webapi.Domains.Usuario)">
+            <summary>
+            Cadastra um novo usuario
+            </summary>
+            <param name="usuario">Novo usuario</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.UsuarioRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um usuario
+            </summary>
+            <param name="id">Id do usuario que sera deletado</param>
+        </member>
+    </members>
+</doc>

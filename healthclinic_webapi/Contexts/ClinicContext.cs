@@ -20,10 +20,10 @@ namespace healthclinic_webapi.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //SENAI Conection
-            //optionsBuilder.UseSqlServer("Server=NOTE22-S15;Database=HealthClinic_Manha;User Id=sa; Pwd = Senai@134; TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=NOTE22-S15;Database=HealthClinic_Manha;User Id=sa; Pwd = Senai@134; TrustServerCertificate=True;", x => x.UseDateOnlyTimeOnly());
 
             //HOME Conection
-            optionsBuilder.UseSqlServer("Server=DESKTOP-C6SOG6K\\SQLEXPRESS;Database=HealthClinic_Manha;User Id=sa; Pwd = pPtA3002; TrustServerCertificate=True;", x => x.UseDateOnlyTimeOnly());
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-C6SOG6K\\SQLEXPRESS;Database=HealthClinic_Manha;User Id=sa; Pwd = pPtA3002; TrustServerCertificate=True;", x => x.UseDateOnlyTimeOnly());
             base.OnConfiguring(optionsBuilder);
         }
     }
