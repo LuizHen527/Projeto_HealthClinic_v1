@@ -2,6 +2,9 @@
 
 namespace healthclinic_webapi.Interfaces
 {
+    /// <summary>
+    /// Interface de perfil
+    /// </summary>
     public interface IPerfilRepository
     {
         /// <summary>

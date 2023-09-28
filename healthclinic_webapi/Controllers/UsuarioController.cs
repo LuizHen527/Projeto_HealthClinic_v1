@@ -52,7 +52,7 @@ namespace healthclinic_webapi.Controllers
         /// <param name="id">Id do usuario que sera deletado</param>
         /// <returns></returns>
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
         public IActionResult Deletar(Guid id)
         {

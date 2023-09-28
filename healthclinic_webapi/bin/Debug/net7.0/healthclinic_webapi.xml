@@ -56,6 +56,91 @@
             <param name="id">Id da especialidade que sera deletada</param>
             <returns>Retorna status code 204</returns>
         </member>
+        <member name="M:healthclinic_webapi.Controllers.FeedbackController.#ctor">
+            <summary>
+            Chama os metodos
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.FeedbackController.Cadastrar(healthclinic_webapi.Domains.Feedback)">
+            <summary>
+            Cadastra um novo feedback
+            </summary>
+            <param name="feedback">Novo feedback</param>
+            <returns>Retorna status code 201</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.FeedbackController.Atualizar(System.Guid,healthclinic_webapi.Domains.Feedback)">
+            <summary>
+            Atualiza um feedback
+            </summary>
+            <param name="id">Id do feedback que sera atualizado</param>
+            <param name="feedback">Novos dados</param>
+            <returns>Retorna status code 200</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.FeedbackController.Deletar(System.Guid)">
+            <summary>
+            Deleta um feedback
+            </summary>
+            <param name="id">Id do feedback que sera deletado</param>
+            <returns>Retorna status code 204</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.PerfilController.Cadastrar(healthclinic_webapi.Domains.Perfil)">
+            <summary>
+            cadastra um novo usuario
+            </summary>
+            <param name="perfil">Perfil que sera cadastrado</param>
+            <returns>Retorna status code 201s</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.PerfilController.Atualizar(System.Guid,healthclinic_webapi.Domains.Perfil)">
+            <summary>
+            Atualiza um perfil
+            </summary>
+            <param name="id">Id do perfil que sera atualizado</param>
+            <param name="perfil">Novos dados de perfil</param>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.PerfilController.Deletar(System.Guid)">
+            <summary>
+            Deleta um perfil
+            </summary>
+            <param name="id">Id do perfil que sera deletado</param>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.ProntuarioController.Cadastrar(healthclinic_webapi.Domains.Prontuario)">
+            <summary>
+            Cadastra um novo prontuario
+            </summary>
+            <param name="prontuario">Novo prontuario</param>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.ProntuarioController.Atualizar(System.Guid,healthclinic_webapi.Domains.Prontuario)">
+            <summary>
+            Atualiza um prontuario
+            </summary>
+            <param name="id">Id do prontuario que sera atualizado</param>
+            <param name="prontuario">Novos dados de prontuario</param>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.ProntuarioController.Deletar(System.Guid)">
+            <summary>
+            Deleta um prontuario
+            </summary>
+            <param name="id">Id do prontuario que sera deletado</param>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.UsuarioController.#ctor">
+            <summary>
+            Chama o repository de usuario
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.UsuarioController.Cadastrar(healthclinic_webapi.Domains.Usuario)">
+            <summary>
+            Cadastra um usuario
+            </summary>
+            <param name="usuario">Novo usuario</param>
+            <returns>Retorna status code 201</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.UsuarioController.Deletar(System.Guid)">
+            <summary>
+            Deleta um usuario
+            </summary>
+            <param name="id">Id do usuario que sera deletado</param>
+            <returns></returns>
+        </member>
         <member name="T:healthclinic_webapi.Interfaces.IClinicaRepository">
             <summary>
             interface de Clinica
@@ -106,6 +191,108 @@
             Deleta uma especialidade
             </summary>
             <param name="id">Id da especialidade que sera deletada</param>
+        </member>
+        <member name="T:healthclinic_webapi.Interfaces.IFeedbackRepository">
+            <summary>
+            Interface de feedback
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IFeedbackRepository.Cadastrar(healthclinic_webapi.Domains.Feedback)">
+            <summary>
+            Cadastra novo feedback
+            </summary>
+            <param name="feedback">Novo feedback</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IFeedbackRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um feedback
+            </summary>
+            <param name="id">Id do feedback que sera deletado</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IFeedbackRepository.Atualizar(System.Guid,healthclinic_webapi.Domains.Feedback)">
+            <summary>
+            Atualiza um feedback
+            </summary>
+            <param name="id">Id do feedback que sera atualizado</param>
+            <param name="feedback">Novos dados</param>
+        </member>
+        <member name="T:healthclinic_webapi.Interfaces.IPacienteRepository">
+            <summary>
+            Interface de paciente
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IPacienteRepository.Cadastrar(healthclinic_webapi.Domains.Paciente)">
+            <summary>
+            Cadastra um novo paciente
+            </summary>
+            <param name="paciente">Novo paciente</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IPacienteRepository.ListarTodos">
+            <summary>
+            Lista todos os pacientes
+            </summary>
+            <returns>Retorna lista com os pacientes</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IPacienteRepository.Atualizar(System.Guid,healthclinic_webapi.Domains.Paciente)">
+            <summary>
+            Atualiza um paciente
+            </summary>
+            <param name="id">Id do paciente que sera atualizado</param>
+            <param name="paciente">Novos dados de paciente</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IPacienteRepository.Delete(System.Guid)">
+            <summary>
+            Deleta um paciente
+            </summary>
+            <param name="id">Id do paciente que sera deletado</param>
+        </member>
+        <member name="T:healthclinic_webapi.Interfaces.IPerfilRepository">
+            <summary>
+            Interface de perfil
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IPerfilRepository.Cadastrar(healthclinic_webapi.Domains.Perfil)">
+            <summary>
+            Cadastra um novo perfil
+            </summary>
+            <param name="perfil">Novo perfil</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IPerfilRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um perfil
+            </summary>
+            <param name="id">Id do perfil que sera deletado</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IPerfilRepository.Atualizar(System.Guid,healthclinic_webapi.Domains.Perfil)">
+            <summary>
+            Atualiza um perfil
+            </summary>
+            <param name="id">Id do perfil que sera atualizado</param>
+            <param name="perfil">Novos dados de perfil</param>
+        </member>
+        <member name="T:healthclinic_webapi.Interfaces.IProntuarioRepository">
+            <summary>
+            Interface de prontuario
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IProntuarioRepository.Cadastrar(healthclinic_webapi.Domains.Prontuario)">
+            <summary>
+            Cadastra um novo prontuario
+            </summary>
+            <param name="prontuario">Novo prontuario</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IProntuarioRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um prontuario
+            </summary>
+            <param name="id">Id do prontuario que sera deletado</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IProntuarioRepository.Atualizar(System.Guid,healthclinic_webapi.Domains.Prontuario)">
+            <summary>
+            Atualiza um prontuario
+            </summary>
+            <param name="id">Id do prontuario que sera atualizado</param>
+            <param name="prontuario">Novos dados de prontuario</param>
         </member>
         <member name="M:healthclinic_webapi.Interfaces.IUsuarioRepository.Cadastrar(healthclinic_webapi.Domains.Usuario)">
             <summary>
@@ -191,6 +378,123 @@
             Deleta uma especialidade
             </summary>
             <param name="id">Id da especialidade que sera deletada</param>
+        </member>
+        <member name="T:healthclinic_webapi.Repositories.FeedbackRepository">
+            <summary>
+            Classe com metodos de feedback
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.FeedbackRepository.#ctor">
+            <summary>
+            Chama o contexto
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.FeedbackRepository.Atualizar(System.Guid,healthclinic_webapi.Domains.Feedback)">
+            <summary>
+            Atualiza um feedback
+            </summary>
+            <param name="id">Id do feedback que sera atualizado</param>
+            <param name="feedback">Novos dados</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.FeedbackRepository.Cadastrar(healthclinic_webapi.Domains.Feedback)">
+            <summary>
+            Cadastra novo feedback
+            </summary>
+            <param name="feedback">Novo feedback</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.FeedbackRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um feedback
+            </summary>
+            <param name="id">Id do feedback que sera deletado</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.PacienteRepository.#ctor">
+            <summary>
+            Chama context
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.PacienteRepository.Atualizar(System.Guid,healthclinic_webapi.Domains.Paciente)">
+            <summary>
+            Atualiza um paciente
+            </summary>
+            <param name="id">Id do paciente que sera atualizado</param>
+            <param name="paciente">Novos dados de paciente</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.PacienteRepository.Cadastrar(healthclinic_webapi.Domains.Paciente)">
+            <summary>
+            Cadastra um novo paciente
+            </summary>
+            <param name="paciente">Novo paciente</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.PacienteRepository.Delete(System.Guid)">
+            <summary>
+            Deleta um paciente
+            </summary>
+            <param name="id">Id do paciente que sera deletado</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.PacienteRepository.ListarTodos">
+            <summary>
+            Lista todos os pacientes
+            </summary>
+            <returns>Retorna lista com os pacientes</returns>
+        </member>
+        <member name="T:healthclinic_webapi.Repositories.PerfilRepository">
+            <summary>
+            Classe com os metodos de perfil
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.PerfilRepository.#ctor">
+            <summary>
+            Chama a context
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.PerfilRepository.Atualizar(System.Guid,healthclinic_webapi.Domains.Perfil)">
+            <summary>
+            Atualiza um perfil
+            </summary>
+            <param name="id">Id do perfil que sera atualizado</param>
+            <param name="perfil">Novos dados de perfil</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.PerfilRepository.Cadastrar(healthclinic_webapi.Domains.Perfil)">
+            <summary>
+            Cadastra um novo perfil     
+            </summary>
+            <param name="perfil">Novo perfil</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.PerfilRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um perfil
+            </summary>
+            <param name="id">Id do perfil que sera deletado</param>
+        </member>
+        <member name="T:healthclinic_webapi.Repositories.ProntuarioRepository">
+            <summary>
+            Classe com metodos de prontuario
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.ProntuarioRepository.#ctor">
+            <summary>
+            Chama o contexto
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.ProntuarioRepository.Atualizar(System.Guid,healthclinic_webapi.Domains.Prontuario)">
+            <summary>
+            Atualiza um prontuario
+            </summary>
+            <param name="id">Id do prontuario que sera atualizado</param>
+            <param name="prontuario">Novos dados de prontuario</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.ProntuarioRepository.Cadastrar(healthclinic_webapi.Domains.Prontuario)">
+            <summary>
+            Cadastra um novo prontuario
+            </summary>
+            <param name="prontuario">Novo prontuario</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.ProntuarioRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um prontuario
+            </summary>
+            <param name="id">Id do prontuario que sera deletado</param>
         </member>
         <member name="T:healthclinic_webapi.Repositories.UsuarioRepository">
             <summary>

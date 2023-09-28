@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace healthclinic_webapi.Domains
 {
+    [Table(nameof(Clinica))]
     public class Clinica
     {
         [Key]

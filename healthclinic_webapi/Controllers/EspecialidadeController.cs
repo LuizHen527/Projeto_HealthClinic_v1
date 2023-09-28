@@ -52,7 +52,7 @@ namespace healthclinic_webapi.Controllers
         /// <param name="id">Id da especialidade que sera deletada</param>
         /// <returns>Retorna status code 204</returns>
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
         public IActionResult Deletar(Guid id)
         {

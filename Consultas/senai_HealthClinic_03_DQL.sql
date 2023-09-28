@@ -12,7 +12,17 @@
 -- Prontuário ou Descricao (Prontuario)
 -- FeedBack(Comentario)
 
-USE Manha_HealthClinic
+USE HealthClinic_Manha
+
+SELECT * FROM Usuario
+
+SELECT * FROM Paciente
+
+SELECT * FROM Perfil
+
+SELECT * FROM Prontuario
+
+SELECT * FROM Clinica
 
 /*Selecione e execute tudo daqui pra baixo*/
 

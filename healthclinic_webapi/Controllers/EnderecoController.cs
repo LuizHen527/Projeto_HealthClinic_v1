@@ -53,7 +53,7 @@ namespace healthclinic_webapi.Controllers
         /// <param name="id">Id do endereco que sera deletado</param>
         /// <returns>Retorna status code 204</returns>
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
         public IActionResult Deletar(Guid id)
         {
