@@ -9,7 +9,7 @@ namespace healthclinic_webapi.Domains
         [Key]
         public Guid IdEndereco { get; set; }
 
-        [Column("VARCHAR(300)")]
+        [Column(TypeName = "VARCHAR(300)")]
         [Required(ErrorMessage = "Endereco obrigatorio")]
         public string? Localidade { get; set; }
 

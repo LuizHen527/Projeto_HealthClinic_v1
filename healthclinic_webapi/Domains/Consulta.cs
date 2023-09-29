@@ -28,7 +28,7 @@ namespace healthclinic_webapi.Domains
         [Required(ErrorMessage = "IdPaciente obrigatorio")]
         public Guid IdPaciente { get; set; }
 
-        [Required(ErrorMessage = "IdFeedback obrigatorio")]
+        
         public Guid IdFeedback { get; set; }
 
 

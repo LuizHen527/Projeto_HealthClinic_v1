@@ -191,6 +191,45 @@
             </summary>
             <param name="id">Id da Clinica que sera deletada</param>
         </member>
+        <member name="M:healthclinic_webapi.Interfaces.IConsultaRepository.Cadastrar(healthclinic_webapi.Domains.Consulta)">
+            <summary>
+            Cadastra uma nova consulta 
+            </summary>
+            <param name="consulta">Nova consulta</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IConsultaRepository.Listar">
+            <summary>
+            Lista todas as consultas 
+            </summary>
+            <returns>retorna lista com as consultas</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IConsultaRepository.Atualizar(System.Guid,healthclinic_webapi.Domains.Consulta)">
+            <summary>
+            atualiza uma consulta
+            </summary>
+            <param name="id">Id da consulta que sera atualizada</param>
+            <param name="consulta">Novos dados de consulta</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IConsultaRepository.Delete(System.Guid)">
+            <summary>
+            Deleta uma consulta
+            </summary>
+            <param name="id">Id da consulta que sera deletada</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IConsultaRepository.BuscarPorIdMedico(System.Guid)">
+            <summary>
+            Busca por todas as consultas de um medico
+            </summary>
+            <param name="id">Id do medico</param>
+            <returns>Retorna lista com todas as consultas de um medico</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IConsultaRepository.BuscarPorIdPaciente(System.Guid)">
+            <summary>
+            Busca por todas as consultas de um medico
+            </summary>
+            <param name="id">Id do paciente</param>
+            <returns>Retorna lista com todas as consultas de um paciente</returns>
+        </member>
         <member name="T:healthclinic_webapi.Interfaces.IEnderecoRepository">
             <summary>
             Interface de endereco
@@ -349,6 +388,42 @@
             <inheritdoc />
         </member>
         <member name="M:healthclinic_webapi.Migrations.DB1.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:healthclinic_webapi.Migrations.DB2">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:healthclinic_webapi.Migrations.DB4">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB4.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB4.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB4.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:healthclinic_webapi.Migrations.DB5">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB5.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB5.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB5.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="T:healthclinic_webapi.Repositories.ClinicaRepository">

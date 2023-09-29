@@ -24,6 +24,10 @@ SELECT * FROM Prontuario
 
 SELECT * FROM Clinica
 
+SELECT * FROM Endereco
+
+SELECT * FROM Medico
+
 /*Selecione e execute tudo daqui pra baixo*/
 
 SELECT
