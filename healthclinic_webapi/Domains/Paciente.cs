@@ -22,7 +22,7 @@ namespace healthclinic_webapi.Domains
         public Guid IdPerfil { get; set; }
 
         [ForeignKey(nameof(IdPerfil))]
-        public Perfil Perfil { get; set; }
+        public Perfil? Perfil { get; set; }
 
         [ForeignKey(nameof(IdProntuario))]
         public Prontuario? Prontuario { get; set; }

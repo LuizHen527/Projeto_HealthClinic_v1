@@ -32,6 +32,8 @@ namespace healthclinic_webapi.Controllers
         {
             try
             {
+                feedback.IdFeedback = Guid.NewGuid();
+
                 _feedbackRepository.Cadastrar(feedback);
 
                 return StatusCode(201);

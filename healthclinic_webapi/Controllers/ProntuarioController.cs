@@ -29,6 +29,8 @@ namespace healthclinic_webapi.Controllers
         {
             try
             {
+                prontuario.IdProntuario = Guid.NewGuid();
+
                 _prontuarioRepository.Cadastrar(prontuario);
 
                 return StatusCode(201);
@@ -46,7 +48,7 @@ namespace healthclinic_webapi.Controllers
         /// <param name="id">Id do prontuario que sera atualizado</param>
         /// <param name="prontuario">Novos dados de prontuario</param>
 
-        [HttpPut]
+        [HttpPut("{id}")]
 
         public IActionResult Atualizar(Guid id, Prontuario prontuario)
         {

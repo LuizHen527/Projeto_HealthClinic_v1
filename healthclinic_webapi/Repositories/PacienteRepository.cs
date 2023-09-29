@@ -27,7 +27,7 @@ namespace healthclinic_webapi.Repositories
             ctx.Paciente.Where(p => p.IdPaciente == id)
                 .ExecuteUpdateAsync(updates =>
                     updates.SetProperty(p => p.Convenio, paciente.Convenio)
-                           .SetProperty(p => p.IdPaciente, paciente.IdPaciente));
+                           .SetProperty(p => p.IdPerfil, paciente.IdPerfil));
         }
 
         /// <summary>
@@ -57,7 +57,28 @@ namespace healthclinic_webapi.Repositories
         /// <returns>Retorna lista com os pacientes</returns>
         public List<Paciente> ListarTodos()
         {
-            throw new NotImplementedException();
+            List<Paciente> pacientes = new List<Paciente>();
+
+            var todosPacientes = ctx.Paciente.ToList();
+
+            if(todosPacientes.Any() )
+            {
+                foreach (var paciente in todosPacientes)
+                {
+                    pacientes.Add(new Paciente()
+                    {
+                        IdPaciente = paciente.IdPaciente,
+                        Convenio = paciente.Convenio,
+                        IdProntuario = paciente.IdProntuario,
+                        IdPerfil = paciente.IdPerfil
+                    });
+                        
+                }
+
+                return pacientes;
+            }
+
+            return null!;
         }
     }
 }

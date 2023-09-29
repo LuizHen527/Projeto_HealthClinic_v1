@@ -19,7 +19,7 @@ namespace healthclinic_webapi.Controllers
         }
 
         /// <summary>
-        /// cadastra um novo usuario
+        /// cadastra um novo perfil
         /// </summary>
         /// <param name="perfil">Perfil que sera cadastrado</param>
         /// <returns>Retorna status code 201s</returns>
@@ -30,6 +30,8 @@ namespace healthclinic_webapi.Controllers
         {
             try
             {
+                perfil.IdPerfil = Guid.NewGuid();
+
                 _perfilRepository.Cadastrar(perfil);
                 return StatusCode(201);
             }
@@ -46,7 +48,7 @@ namespace healthclinic_webapi.Controllers
         /// </summary>
         /// <param name="id">Id do perfil que sera atualizado</param>
         /// <param name="perfil">Novos dados de perfil</param>
-        [HttpPut]
+        [HttpPut("{id}")]
 
         public IActionResult Atualizar(Guid id, Perfil perfil)
         {

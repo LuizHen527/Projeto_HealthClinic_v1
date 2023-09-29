@@ -83,9 +83,42 @@
             <param name="id">Id do feedback que sera deletado</param>
             <returns>Retorna status code 204</returns>
         </member>
+        <member name="M:healthclinic_webapi.Controllers.PacienteController.#ctor">
+            <summary>
+            Chama a classe com os metodos
+            </summary>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.PacienteController.Cadastrar(healthclinic_webapi.Domains.Paciente)">
+            <summary>
+            Cadastra um paciente
+            </summary>
+            <param name="paciente">Novo paciente</param>
+            <returns>Retorna status code 200</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.PacienteController.Listar">
+            <summary>
+            Lista todos os pacientes
+            </summary>
+            <returns>Retorna uma lista com todos os pacientes</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.PacienteController.Atualizar(System.Guid,healthclinic_webapi.Domains.Paciente)">
+            <summary>
+            Atualiza um paciente
+            </summary>
+            <param name="id">Id do paciente que sera atualizado</param>
+            <param name="paciente">Novos dados</param>
+            <returns>Retorna um status code 200</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.PacienteController.Deletar(System.Guid)">
+            <summary>
+            Deleta um usuario
+            </summary>
+            <param name="id">Id do usuario que sera deletado</param>
+            <returns></returns>
+        </member>
         <member name="M:healthclinic_webapi.Controllers.PerfilController.Cadastrar(healthclinic_webapi.Domains.Perfil)">
             <summary>
-            cadastra um novo usuario
+            cadastra um novo perfil
             </summary>
             <param name="perfil">Perfil que sera cadastrado</param>
             <returns>Retorna status code 201s</returns>
