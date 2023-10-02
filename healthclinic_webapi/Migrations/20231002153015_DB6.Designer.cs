@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using healthclinic_webapi.Contexts;
 
@@ -11,9 +12,11 @@ using healthclinic_webapi.Contexts;
 namespace healthclinic_webapi.Migrations
 {
     [DbContext(typeof(ClinicContext))]
-    partial class ClinicContextModelSnapshot : ModelSnapshot
+    [Migration("20231002153015_DB6")]
+    partial class DB6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,11 +60,8 @@ namespace healthclinic_webapi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateOnly>("AgendamentoData")
+                    b.Property<DateTime>("Agendamento")
                         .HasColumnType("DATE");
-
-                    b.Property<TimeOnly>("AgendamentoHora")
-                        .HasColumnType("TIME");
 
                     b.Property<Guid>("IdEndereco")
                         .HasColumnType("uniqueidentifier");

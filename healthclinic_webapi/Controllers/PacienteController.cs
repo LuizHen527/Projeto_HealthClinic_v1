@@ -92,7 +92,7 @@ namespace healthclinic_webapi.Controllers
         }
 
         /// <summary>
-        /// Deleta um usuario
+        /// Deleta um paciente
         /// </summary>
         /// <param name="id">Id do usuario que sera deletado</param>
         /// <returns></returns>

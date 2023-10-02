@@ -14,6 +14,11 @@ namespace healthclinic_webapi.Repositories
             ctx = new ClinicContext();
         }
 
+        /// <summary>
+        /// Atualiza um medico
+        /// </summary>
+        /// <param name="id">Id do medico</param>
+        /// <param name="medico">Novos dados</param>
         public void Atualizar(Guid id, Medico medico)
         {
             ctx.Medico.Where(m => medico.IdMedico == id)
@@ -23,6 +28,10 @@ namespace healthclinic_webapi.Repositories
                            .SetProperty(m => m.IdEspecialidade, medico.IdEspecialidade));
         }
 
+        /// <summary>
+        /// Cadastra um novo medico
+        /// </summary>
+        /// <param name="medico">Novo medico</param>
         public void Cadastrar(Medico medico)
         {
             ctx.Medico.Add(medico);
@@ -30,12 +39,20 @@ namespace healthclinic_webapi.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Deleta um medico
+        /// </summary>
+        /// <param name="id">Id do medico</param>
         public void Delete(Guid id)
         {
             ctx.Medico.Where(m => m.IdMedico == id)
                 .ExecuteDeleteAsync();
         }
 
+        /// <summary>
+        /// Lista todos os medicos
+        /// </summary>
+        /// <returns>Retorna lista com os medicos</returns>
         public List<Medico> Listar()
         {
             List<Medico> medicos = new List<Medico>();

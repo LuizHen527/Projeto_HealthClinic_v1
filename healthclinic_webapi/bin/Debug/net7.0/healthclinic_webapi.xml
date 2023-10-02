@@ -18,6 +18,48 @@
             <param name="id">Id da clinica que sera deletada</param>
             <returns>Retorna status code 204</returns>
         </member>
+        <member name="M:healthclinic_webapi.Controllers.ConsultaController.Cadastrar(healthclinic_webapi.Domains.Consulta)">
+            <summary>
+            Cadastra uma consulta
+            </summary>
+            <param name="consulta">Nova consulta</param>
+            <returns>Retorna status code 200</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.ConsultaController.ListarTodos">
+            <summary>
+            Lista todas as consultas
+            </summary>
+            <returns>Retorna lista com as consultas</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.ConsultaController.ListarPorPaciente(System.Guid)">
+            <summary>
+            Lista todas as consultas de um paciente
+            </summary>
+            <param name="idPaciente">Id do paciente</param>
+            <returns>Retorna lista com as consultas do paciente</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.ConsultaController.ListarPorMedico(System.Guid)">
+            <summary>
+            Lista todas as consultas de um medico
+            </summary>
+            <param name="idMedico">Id do medico</param>
+            <returns>Retorna lista com as consultas do medico</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.ConsultaController.Deletar(System.Guid)">
+            <summary>
+            Deleta uma consulta
+            </summary>
+            <param name="id">Id da consulta</param>
+            <returns>Retorna status code 204</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.ConsultaController.Atualizar(System.Guid,healthclinic_webapi.Domains.Consulta)">
+            <summary>
+            Atualiza uma consulta
+            </summary>
+            <param name="id">Is da consulta</param>
+            <param name="consulta">Novos dados</param>
+            <returns>Retorna status code 204</returns>
+        </member>
         <member name="M:healthclinic_webapi.Controllers.EnderecoController.#ctor">
             <summary>
             Chama um endereco repository
@@ -83,6 +125,34 @@
             <param name="id">Id do feedback que sera deletado</param>
             <returns>Retorna status code 204</returns>
         </member>
+        <member name="M:healthclinic_webapi.Controllers.MedicoController.Cadastrar(healthclinic_webapi.Domains.Medico)">
+            <summary>
+            Cadastra um novo medico
+            </summary>
+            <param name="medico">Novo medico</param>
+            <returns>Status code 200</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.MedicoController.Listar">
+            <summary>
+            Lista todos os medicos
+            </summary>
+            <returns>Retorna status code 200 com a lista de medicos</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.MedicoController.Atualizar(System.Guid,healthclinic_webapi.Domains.Medico)">
+            <summary>
+            Atualiza um medico
+            </summary>
+            <param name="id">Id do medico</param>
+            <param name="medico">Novos dados</param>
+            <returns>Retorna status code 200</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.MedicoController.Deletar(System.Guid)">
+            <summary>
+            Deleta um medico
+            </summary>
+            <param name="id">Id do novo medico</param>
+            <returns>Retorna status code 204</returns>
+        </member>
         <member name="M:healthclinic_webapi.Controllers.PacienteController.#ctor">
             <summary>
             Chama a classe com os metodos
@@ -111,7 +181,7 @@
         </member>
         <member name="M:healthclinic_webapi.Controllers.PacienteController.Deletar(System.Guid)">
             <summary>
-            Deleta um usuario
+            Deleta um paciente
             </summary>
             <param name="id">Id do usuario que sera deletado</param>
             <returns></returns>
@@ -288,6 +358,31 @@
             <param name="id">Id do feedback que sera atualizado</param>
             <param name="feedback">Novos dados</param>
         </member>
+        <member name="M:healthclinic_webapi.Interfaces.IMedicoRepository.Cadastrar(healthclinic_webapi.Domains.Medico)">
+            <summary>
+            Cadastra um novo medico
+            </summary>
+            <param name="medico">Novo medico</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IMedicoRepository.Listar">
+            <summary>
+            Lista todos os medicos
+            </summary>
+            <returns>Retorna lista com os medicos</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IMedicoRepository.Atualizar(System.Guid,healthclinic_webapi.Domains.Medico)">
+            <summary>
+            Atualiza um medico
+            </summary>
+            <param name="id">Id do medico</param>
+            <param name="medico">Novos dados</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.IMedicoRepository.Delete(System.Guid)">
+            <summary>
+            Deleta um medico
+            </summary>
+            <param name="id">Id do medico</param>
+        </member>
         <member name="T:healthclinic_webapi.Interfaces.IPacienteRepository">
             <summary>
             Interface de paciente
@@ -426,6 +521,30 @@
         <member name="M:healthclinic_webapi.Migrations.DB5.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:healthclinic_webapi.Migrations.DB6">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB6.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB6.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB6.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:healthclinic_webapi.Migrations.DB7">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB7.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB7.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB7.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
         <member name="T:healthclinic_webapi.Repositories.ClinicaRepository">
             <summary>
             Classe com os metodos da clinica
@@ -442,6 +561,45 @@
             Deleta uma clinica existente
             </summary>
             <param name="id">Id da Clinica que sera deletada</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.ConsultaRepository.Atualizar(System.Guid,healthclinic_webapi.Domains.Consulta)">
+            <summary>
+            atualiza uma consulta
+            </summary>
+            <param name="id">Id da consulta que sera atualizada</param>
+            <param name="consulta">Novos dados de consulta</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.ConsultaRepository.BuscarPorIdMedico(System.Guid)">
+            <summary>
+            Busca por todas as consultas de um medico
+            </summary>
+            <param name="id">Id do medico</param>
+            <returns>Retorna lista com todas as consultas de um medico</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.ConsultaRepository.BuscarPorIdPaciente(System.Guid)">
+            <summary>
+            Busca por todas as consultas de um medico
+            </summary>
+            <param name="id">Id do paciente</param>
+            <returns>Retorna lista com todas as consultas de um paciente</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.ConsultaRepository.Cadastrar(healthclinic_webapi.Domains.Consulta)">
+            <summary>
+            Cadastra uma nova consulta 
+            </summary>
+            <param name="consulta">Nova consulta</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.ConsultaRepository.Delete(System.Guid)">
+            <summary>
+            Deleta uma consulta
+            </summary>
+            <param name="id">Id da consulta que sera deletada</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.ConsultaRepository.Listar">
+            <summary>
+            Lista todas as consultas 
+            </summary>
+            <returns>retorna lista com as consultas</returns>
         </member>
         <member name="T:healthclinic_webapi.Repositories.EnderecoRepository">
             <summary>
@@ -515,6 +673,31 @@
             Deleta um feedback
             </summary>
             <param name="id">Id do feedback que sera deletado</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.MedicoRepository.Atualizar(System.Guid,healthclinic_webapi.Domains.Medico)">
+            <summary>
+            Atualiza um medico
+            </summary>
+            <param name="id">Id do medico</param>
+            <param name="medico">Novos dados</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.MedicoRepository.Cadastrar(healthclinic_webapi.Domains.Medico)">
+            <summary>
+            Cadastra um novo medico
+            </summary>
+            <param name="medico">Novo medico</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.MedicoRepository.Delete(System.Guid)">
+            <summary>
+            Deleta um medico
+            </summary>
+            <param name="id">Id do medico</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.MedicoRepository.Listar">
+            <summary>
+            Lista todos os medicos
+            </summary>
+            <returns>Retorna lista com os medicos</returns>
         </member>
         <member name="M:healthclinic_webapi.Repositories.PacienteRepository.#ctor">
             <summary>

@@ -18,6 +18,11 @@ namespace healthclinic_webapi.Controllers
             _medicoRepository = new MedicoRepository();
         }
 
+        /// <summary>
+        /// Cadastra um novo medico
+        /// </summary>
+        /// <param name="medico">Novo medico</param>
+        /// <returns>Status code 200</returns>
         [HttpPost]
 
         public IActionResult Cadastrar(Medico medico)
@@ -37,6 +42,10 @@ namespace healthclinic_webapi.Controllers
             }
         }
 
+        /// <summary>
+        /// Lista todos os medicos
+        /// </summary>
+        /// <returns>Retorna status code 200 com a lista de medicos</returns>
         [HttpGet]
 
         public IActionResult Listar()
@@ -54,6 +63,12 @@ namespace healthclinic_webapi.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza um medico
+        /// </summary>
+        /// <param name="id">Id do medico</param>
+        /// <param name="medico">Novos dados</param>
+        /// <returns>Retorna status code 200</returns>
         [HttpPut]
 
         public IActionResult Atualizar(Guid id, Medico medico)
@@ -70,6 +85,11 @@ namespace healthclinic_webapi.Controllers
             }
         }
 
+        /// <summary>
+        /// Deleta um medico
+        /// </summary>
+        /// <param name="id">Id do novo medico</param>
+        /// <returns>Retorna status code 204</returns>
         [HttpDelete]
 
         public IActionResult Deletar(Guid id)

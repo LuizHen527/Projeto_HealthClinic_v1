@@ -14,97 +14,122 @@ namespace healthclinic_webapi.Repositories
             ctx= new ClinicContext();
         }
 
+        /// <summary>
+        /// atualiza uma consulta
+        /// </summary>
+        /// <param name="id">Id da consulta que sera atualizada</param>
+        /// <param name="consulta">Novos dados de consulta</param>
         public void Atualizar(Guid id, Consulta consulta)
         {
             ctx.Consulta.Where(c => c.IdConsulta == id)
                 .ExecuteUpdateAsync(updates =>
-                    updates.SetProperty(c => c.Agendamento, consulta.Agendamento)
+                    updates.SetProperty(c => c.AgendamentoData, consulta.AgendamentoData)
+                           .SetProperty(c => c.AgendamentoHora, consulta.AgendamentoHora)
                            .SetProperty(c => c.Status, consulta.Status));
         }
 
+        /// <summary>
+        /// Busca por todas as consultas de um medico
+        /// </summary>
+        /// <param name="id">Id do medico</param>
+        /// <returns>Retorna lista com todas as consultas de um medico</returns>
         public List<Consulta> BuscarPorIdMedico(Guid id)
         {
-            List<Consulta> consultasMedico =new List<Consulta>();
-
-            var todasConsultasMedico = ctx.Consulta.Where(c => c.IdConsulta == id).ToList();
-
-            if(todasConsultasMedico.Any())
+            try
             {
-                foreach (var c in todasConsultasMedico)
+                return ctx.Consulta.Where(c => c.IdMedico == id).Select(c => new Consulta
                 {
-                    consultasMedico.Add(new Consulta
+                    IdConsulta = c.IdConsulta,
+                    AgendamentoData = c.AgendamentoData,
+                    AgendamentoHora = c.AgendamentoHora,
+                    Status = c.Status,
+                    Endereco = new Endereco
                     {
-                        Agendamento= c.Agendamento,
-                        Status = c.Status,
-                        Endereco = new Endereco
+                        Localidade = c.Endereco.Localidade,
+                    },
+
+                    Paciente = new Paciente
+                    {
+                        Prontuario = new Prontuario
                         {
-                            Localidade = c.Endereco.Localidade,
+                            Descricao = c.Paciente.Prontuario!.Descricao
                         },
 
-                        Paciente = new Paciente
+                        Perfil = new Perfil
                         {
-                            Prontuario = new Prontuario
+                            Usuario = new Usuario
                             {
-                                Descricao = c.Paciente.Prontuario!.Descricao
-                            },
-
-                            Perfil = new Perfil
-                            {
-                                Usuario = new Usuario
-                                {
-                                    Nome = c.Paciente.Perfil!.Usuario!.Nome,
-                                }
+                                Nome = c.Paciente.Perfil!.Usuario!.Nome,
                             }
-                        },
-
-                    });
-                }
-                return consultasMedico;
+                        }
+                    }
+                }).ToList();
             }
+            catch (Exception)
+            {
 
-            return null!;
+                throw;
+            }
         }
 
+        /// <summary>
+        /// Busca por todas as consultas de um medico
+        /// </summary>
+        /// <param name="id">Id do paciente</param>
+        /// <returns>Retorna lista com todas as consultas de um paciente</returns>
         public List<Consulta> BuscarPorIdPaciente(Guid id)
         {
-            List<Consulta> consultasPaciente = new List<Consulta>();
-
-            var todasConsultasPaciente = ctx.Consulta.Where(c => c.IdConsulta == id).ToList();
-
-            if(todasConsultasPaciente.Any())
+            try
             {
-                foreach (var c in todasConsultasPaciente)
+                return ctx.Consulta.Where(c => c.IdPaciente == id).Select(c => new Consulta
                 {
-                    consultasPaciente.Add(new Consulta
+                    IdConsulta = c.IdConsulta,
+                    Status = c.Status,
+                    AgendamentoData = c.AgendamentoData,
+                    AgendamentoHora = c.AgendamentoHora,
+
+                    IdEndereco = c.IdEndereco,
+                    Endereco = new Endereco
                     {
-                        Status = c.Status,
-                        Agendamento = c.Agendamento,
-                        Endereco = new Endereco
+                        Localidade = c.Endereco!.Localidade,
+                    },
+
+                    IdMedico = c.IdMedico,
+                    Medico = new Medico
+                    {
+                        IdEspecialidade = c.Medico.IdEspecialidade,
+                        Especialidade = new Especialidade
                         {
-                            Localidade = c.Endereco.Localidade,
+                            EspecialidadeNome = c.Medico!.Especialidade!.EspecialidadeNome
                         },
 
-                        Medico = new Medico
+                        IdPerfil = c.Medico.IdPerfil,
+                        Perfil = new Perfil
                         {
-                            Especialidade = new Especialidade
+
+                            IdUsuario = c.Medico.Perfil!.IdUsuario,
+                            Usuario = new Usuario
                             {
-                                EspecialidadeNome = c.Medico.Especialidade.EspecialidadeNome
-                            },
-                            Perfil = new Perfil
-                            {
-                                Usuario = new Usuario
-                                {
-                                    Nome = c.Medico.Perfil.Usuario.Nome
-                                }
+                                Nome = c.Medico.Perfil!.Usuario!.Nome
                             }
-                        },
-                    });
-                }
-                return consultasPaciente;
+                        }
+                    }
+                }).ToList();
+
+                
             }
-            return null!;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
+
+        /// <summary>
+        /// Cadastra uma nova consulta 
+        /// </summary>
+        /// <param name="consulta">Nova consulta</param>
         public void Cadastrar(Consulta consulta)
         {
             ctx.Consulta.Add(consulta);
@@ -112,69 +137,112 @@ namespace healthclinic_webapi.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Deleta uma consulta
+        /// </summary>
+        /// <param name="id">Id da consulta que sera deletada</param>
         public void Delete(Guid id)
         {
             ctx.Consulta.Where(c => c.IdConsulta == id)
                 .ExecuteDeleteAsync();
         }
 
+
+        /// <summary>
+        /// Lista todas as consultas 
+        /// </summary>
+        /// <returns>retorna lista com as consultas</returns>
         public List<Consulta> Listar()
         {
-            List<Consulta> consultas = new List<Consulta>();
-
-            var todasConsultas = ctx.Consulta.ToList();
-
-            if(todasConsultas.Any())
+            try
             {
-                foreach (var consulta in todasConsultas)
+                return ctx.Consulta.Select(consulta => new Consulta
                 {
-                    consultas.Add(new Consulta()
+                    IdConsulta = consulta.IdConsulta,
+                    AgendamentoData = consulta.AgendamentoData,
+                    AgendamentoHora = consulta.AgendamentoHora,
+                    Status = consulta.Status,
+                    Endereco = new Endereco
                     {
-                        IdConsulta = consulta.IdConsulta,
-                        Agendamento = consulta.Agendamento,
-                        Status = consulta.Status,
-                        Endereco = new Endereco
+                        Localidade = consulta.Endereco!.Localidade,
+                    },
+                    Paciente = new Paciente
+                    {
+                        Prontuario = new Prontuario
                         {
-                            Localidade = consulta.Endereco.Localidade,
+                            Descricao = consulta.Paciente!.Prontuario!.Descricao
                         },
-                        Paciente = new Paciente
-                        {
-                            Prontuario = new Prontuario
-                            {
-                                Descricao = consulta.Paciente.Prontuario!.Descricao
-                            }, 
 
-                            Perfil = new Perfil
+                        Perfil = new Perfil
+                        {
+                            Usuario = new Usuario
                             {
-                                Usuario = new Usuario
-                                {
-                                    Nome = consulta.Paciente.Perfil.Usuario.Nome,
-                                }
+                                Nome = consulta.Paciente.Perfil!.Usuario!.Nome,
+                                CPF = consulta.Paciente.Perfil.Usuario.CPF
                             }
-                        },
-                        Medico = new Medico
+                        }
+                    },
+                    Medico = new Medico
+                    {
+                        Especialidade = new Especialidade
                         {
-                            Especialidade = new Especialidade
-                            {
-                                EspecialidadeNome = consulta.Medico.Especialidade.EspecialidadeNome
-                            },
-                            Perfil = new Perfil
-                            {
-                                Usuario = new Usuario
-                                {
-                                    Nome = consulta.Medico.Perfil.Usuario.Nome
-                                }
-                            }
+                            EspecialidadeNome = consulta.Medico!.Especialidade!.EspecialidadeNome
                         },
-
-                        
-                    });
-                }
-
-                return consultas;
+                        Perfil = new Perfil
+                        {
+                            Usuario = new Usuario
+                            {
+                                Nome = consulta.Medico.Perfil!.Usuario!.Nome
+                            }
+                        }
+                    }
+                }).ToList();
             }
+            catch (Exception)
+            {
 
-            return null!;
+                throw;
+            }
         }
     }
 }
+
+
+//
+
+//List<Consulta> consultasPaciente = new List<Consulta>();
+
+//var todasConsultasPaciente = ctx.Consulta.Where(c => c.IdPaciente == id).ToList();
+
+//if (todasConsultasPaciente.Any())
+//{
+//    foreach (var c in todasConsultasPaciente)
+//    {
+//        consultasPaciente.Add(new Consulta
+//        {
+//            Status = c.Status,
+//            Agendamento = c.Agendamento,
+//            Endereco = new Endereco
+//            {
+//                Localidade = c.Endereco.Localidade,
+//            },
+
+//            Medico = new Medico
+//            {
+//                Especialidade = new Especialidade
+//                {
+//                    EspecialidadeNome = c.Medico.Especialidade!.EspecialidadeNome
+//                },
+//                Perfil = new Perfil
+//                {
+//                    Usuario = new Usuario
+//                    {
+//                        Nome = c.Medico.Perfil!.Usuario!.Nome
+//                    }
+//                }
+//            },
+//        });
+//    }
+//    return consultasPaciente;
+//}
+//return null!;

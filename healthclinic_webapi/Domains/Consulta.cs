@@ -11,7 +11,11 @@ namespace healthclinic_webapi.Domains
 
         [Column(TypeName = "DATE")]
         [Required(ErrorMessage = "Data obrigatoria")]
-        public DateTime Agendamento { get; set; }
+        public DateOnly AgendamentoData { get; set; }
+
+        [Column(TypeName = "TIME")]
+        [Required(ErrorMessage = "Horario obrigatoria")]
+        public TimeOnly AgendamentoHora { get; set; }
 
         [Column(TypeName = "BIT")]
         [Required(ErrorMessage = "A consulta esta confirmada?")]
@@ -33,13 +37,13 @@ namespace healthclinic_webapi.Domains
 
 
         [ForeignKey(nameof(IdEndereco))]
-        public Endereco Endereco { get; set; }
+        public Endereco? Endereco { get; set; }
 
         [ForeignKey(nameof(IdMedico))]
-        public Medico Medico { get; set; }
+        public Medico? Medico { get; set; }
 
         [ForeignKey(nameof(IdPaciente))]
-        public Paciente Paciente { get; set; }
+        public Paciente? Paciente { get; set; }
 
         [ForeignKey(nameof(IdFeedback))]
         public Feedback? Feedback { get; set; }
