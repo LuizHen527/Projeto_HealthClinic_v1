@@ -25,5 +25,13 @@ namespace healthclinic_webapi.Interfaces
         /// <param name="id">Id do perfil que sera atualizado</param>
         /// <param name="perfil">Novos dados de perfil</param>
         void Atualizar(Guid id, Perfil perfil);
+
+        /// <summary>
+        /// Busca um perfil por email e senha
+        /// </summary>
+        /// <param name="email">email digitado</param>
+        /// <param name="senha">senha digitada</param>
+        /// <returns>retorna o perfil buscado</returns>
+        Perfil BuscarPorEmailSenha(string email, string senha);
     }
 }

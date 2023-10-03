@@ -1,6 +1,7 @@
 ﻿using healthclinic_webapi.Contexts;
 using healthclinic_webapi.Domains;
 using healthclinic_webapi.Interfaces;
+using healthclinic_webapi.Utils;
 using Microsoft.EntityFrameworkCore;
 
 namespace healthclinic_webapi.Repositories
@@ -34,11 +35,56 @@ namespace healthclinic_webapi.Repositories
         }
 
         /// <summary>
+        /// Busca um perfil por email e senha
+        /// </summary>
+        /// <param name="email">email digitado</param>
+        /// <param name="senha">senha digitada</param>
+        /// <returns>retorna o perfil buscado</returns>
+        public Perfil BuscarPorEmailSenha(string email, string senha)
+        {
+            try
+            {
+                Perfil perfilBuscado = ctx.Perfil
+                    .Select(p => new Perfil
+                    {
+                        IdPerfil = p.IdPerfil,
+                        Email = p.Email,
+                        Senha = p.Senha,
+                        TiposUsuario = new TiposUsuario
+                        {
+                            IdTiposUsuario = p.TiposUsuario.IdTiposUsuario,
+                            Tipo = p.TiposUsuario.Tipo
+                        }
+                    }).FirstOrDefault(p => p.Email == email);
+
+                if (perfilBuscado != null)
+                {
+                    bool confere = Criptografia.CompararHash(senha, perfilBuscado.Senha);
+
+                    if (confere)
+                    {
+                        return perfilBuscado;
+                    }
+
+                    
+                }
+                return null!;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Cadastra um novo perfil     
         /// </summary>
         /// <param name="perfil">Novo perfil</param>
         public void Cadastrar(Perfil perfil)
         {
+            perfil.Senha = Criptografia.GerarHash(perfil.Senha);
+
             ctx.Perfil.Add(perfil);
 
             ctx.SaveChanges();

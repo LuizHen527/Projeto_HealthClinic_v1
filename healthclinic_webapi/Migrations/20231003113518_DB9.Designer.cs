@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using healthclinic_webapi.Contexts;
 
@@ -11,9 +12,11 @@ using healthclinic_webapi.Contexts;
 namespace healthclinic_webapi.Migrations
 {
     [DbContext(typeof(ClinicContext))]
-    partial class ClinicContextModelSnapshot : ModelSnapshot
+    [Migration("20231003113518_DB9")]
+    partial class DB9
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -204,20 +207,15 @@ namespace healthclinic_webapi.Migrations
                         .IsRequired()
                         .HasColumnType("VARCHAR(350)");
 
-                    b.Property<Guid>("IdTiposUsuario")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("IdUsuario")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasMaxLength(200)
+                        .HasMaxLength(60)
                         .HasColumnType("VARCHAR(350)");
 
                     b.HasKey("IdPerfil");
-
-                    b.HasIndex("IdTiposUsuario");
 
                     b.HasIndex("IdUsuario");
 
@@ -237,21 +235,6 @@ namespace healthclinic_webapi.Migrations
                     b.HasKey("IdProntuario");
 
                     b.ToTable("Prontuario");
-                });
-
-            modelBuilder.Entity("healthclinic_webapi.Domains.TiposUsuario", b =>
-                {
-                    b.Property<Guid>("IdTiposUsuario")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Tipo")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(200)");
-
-                    b.HasKey("IdTiposUsuario");
-
-                    b.ToTable("TiposUsuario");
                 });
 
             modelBuilder.Entity("healthclinic_webapi.Domains.Usuario", b =>
@@ -370,19 +353,11 @@ namespace healthclinic_webapi.Migrations
 
             modelBuilder.Entity("healthclinic_webapi.Domains.Perfil", b =>
                 {
-                    b.HasOne("healthclinic_webapi.Domains.TiposUsuario", "TiposUsuario")
-                        .WithMany()
-                        .HasForeignKey("IdTiposUsuario")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("healthclinic_webapi.Domains.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdUsuario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("TiposUsuario");
 
                     b.Navigation("Usuario");
                 });

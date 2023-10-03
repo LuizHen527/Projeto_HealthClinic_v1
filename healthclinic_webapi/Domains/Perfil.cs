@@ -15,7 +15,7 @@ namespace healthclinic_webapi.Domains
 
         [Column(TypeName = "VARCHAR(350)")]
         [Required(ErrorMessage = "Senha obrigatoria")]
-        [StringLength(60, MinimumLength = 6, ErrorMessage = "Senha entre 6 e 60 digitos")]
+        [StringLength(200, MinimumLength = 6, ErrorMessage = "Senha entre 6 e 60 digitos")]
         public string? Senha { get; set; }
 
         //Foreign key
@@ -25,5 +25,11 @@ namespace healthclinic_webapi.Domains
 
         [ForeignKey(nameof(IdUsuario))]
         public Usuario? Usuario { get; set; }
+
+        [Required(ErrorMessage = "IdTiposUsuario obrigatorio")]
+        public Guid IdTiposUsuario { get; set; }
+
+        [ForeignKey(nameof(IdTiposUsuario))]
+        public TiposUsuario? TiposUsuario { get; set; }
     }
 }

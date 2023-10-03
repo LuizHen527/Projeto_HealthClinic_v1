@@ -225,6 +225,20 @@
             </summary>
             <param name="id">Id do prontuario que sera deletado</param>
         </member>
+        <member name="M:healthclinic_webapi.Controllers.TiposUsuarioController.Cadastrar(healthclinic_webapi.Domains.TiposUsuario)">
+            <summary>
+            Cadastra um tipo de usuario
+            </summary>
+            <param name="tiposUsuario">Novo tipo de usuario</param>
+            <returns>Status code 200</returns>
+        </member>
+        <member name="M:healthclinic_webapi.Controllers.TiposUsuarioController.Deletar(System.Guid)">
+            <summary>
+            Deleta um tipo de usuario
+            </summary>
+            <param name="id">Id do tipo de usuario</param>
+            <returns>Retona status code 204</returns>
+        </member>
         <member name="M:healthclinic_webapi.Controllers.UsuarioController.#ctor">
             <summary>
             Chama o repository de usuario
@@ -437,6 +451,14 @@
             <param name="id">Id do perfil que sera atualizado</param>
             <param name="perfil">Novos dados de perfil</param>
         </member>
+        <member name="M:healthclinic_webapi.Interfaces.IPerfilRepository.BuscarPorEmailSenha(System.String,System.String)">
+            <summary>
+            Busca um perfil por email e senha
+            </summary>
+            <param name="email">email digitado</param>
+            <param name="senha">senha digitada</param>
+            <returns>retorna o perfil buscado</returns>
+        </member>
         <member name="T:healthclinic_webapi.Interfaces.IProntuarioRepository">
             <summary>
             Interface de prontuario
@@ -460,6 +482,18 @@
             </summary>
             <param name="id">Id do prontuario que sera atualizado</param>
             <param name="prontuario">Novos dados de prontuario</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.ITiposUsuarioRepository.Cadastrar(healthclinic_webapi.Domains.TiposUsuario)">
+            <summary>
+            Cadastra um tipo de usuario
+            </summary>
+            <param name="tiposUsuario">Novo tipo de usuario</param>
+        </member>
+        <member name="M:healthclinic_webapi.Interfaces.ITiposUsuarioRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um tipo de usuario
+            </summary>
+            <param name="id">Id do tipo de usuario</param>
         </member>
         <member name="M:healthclinic_webapi.Interfaces.IUsuarioRepository.Cadastrar(healthclinic_webapi.Domains.Usuario)">
             <summary>
@@ -543,6 +577,66 @@
             <inheritdoc />
         </member>
         <member name="M:healthclinic_webapi.Migrations.DB7.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:healthclinic_webapi.Migrations.DB8">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB8.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB8.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB8.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:healthclinic_webapi.Migrations.DB9">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB9.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB9.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB9.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:healthclinic_webapi.Migrations.DB10">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB10.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB10.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB10.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:healthclinic_webapi.Migrations.DB11">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB11.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB11.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB11.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:healthclinic_webapi.Migrations.DB12">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB12.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB12.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:healthclinic_webapi.Migrations.DB12.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="T:healthclinic_webapi.Repositories.ClinicaRepository">
@@ -746,6 +840,14 @@
             <param name="id">Id do perfil que sera atualizado</param>
             <param name="perfil">Novos dados de perfil</param>
         </member>
+        <member name="M:healthclinic_webapi.Repositories.PerfilRepository.BuscarPorEmailSenha(System.String,System.String)">
+            <summary>
+            Busca um perfil por email e senha
+            </summary>
+            <param name="email">email digitado</param>
+            <param name="senha">senha digitada</param>
+            <returns>retorna o perfil buscado</returns>
+        </member>
         <member name="M:healthclinic_webapi.Repositories.PerfilRepository.Cadastrar(healthclinic_webapi.Domains.Perfil)">
             <summary>
             Cadastra um novo perfil     
@@ -786,6 +888,18 @@
             Deleta um prontuario
             </summary>
             <param name="id">Id do prontuario que sera deletado</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.TiposUsuarioRepository.Cadastrar(healthclinic_webapi.Domains.TiposUsuario)">
+            <summary>
+            Cadastra um tipo de usuario
+            </summary>
+            <param name="tiposUsuario">Novo tipo de usuario</param>
+        </member>
+        <member name="M:healthclinic_webapi.Repositories.TiposUsuarioRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um tipo de usuario
+            </summary>
+            <param name="id">Id do tipo de usuario</param>
         </member>
         <member name="T:healthclinic_webapi.Repositories.UsuarioRepository">
             <summary>
